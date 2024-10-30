@@ -1,16 +1,16 @@
 use dioxus::prelude::*;
-{% if is_fullstack %}
+{% if is_fullstack -%}
 use crate::components::{Hero, Calculator};
-{% else %}
+{%- else -%}
 use crate::components::Hero;
-{% endif %}
+{%- endif %}
 
 #[component]
 pub fn Home() -> Element {
     rsx! {
         Hero {}
-        {% if is_fullstack %}
+        {% if is_fullstack -%}
         Calculator {}
-        {% endif %}
+        {%- endif %}
     }
 }

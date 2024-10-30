@@ -1,6 +1,7 @@
 use dioxus::prelude::*;
 use dioxus_logger::tracing::info;
 
+/// Calculator component that calls to our fullstack server to perform calculations.
 #[component]
 pub fn Calculator() -> Element {
     let mut first_number = use_signal(|| 1);

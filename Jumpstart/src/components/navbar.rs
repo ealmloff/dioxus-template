@@ -3,7 +3,6 @@ use dioxus::prelude::*;
 
 const NAVBAR_CSS: Asset = asset!("/assets/styling/navbar.css");
 
-// If router, this is navbar
 #[component]
 pub fn Navbar() -> Element {
     rsx! {

@@ -1,4 +1,4 @@
-// These are variables that can be used in liquid
+// These are variables that are used in liquid
 const DIOXUS_DEP_FEAT_VAR = "dioxus_dep_features";
 const DEFAULT_PLATFORM_VAR = "default_platform";
 
