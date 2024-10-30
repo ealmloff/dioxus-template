@@ -6,4 +6,4 @@ This repo is used by `dx new` when starting new projects. The CLI relies on [car
 
 ### Organization
 
-This repository is organized into multiple sub-templates for each platform.
+This repository is organized into two sub templates: one for single multi-platform binaries and another for multi-platform workspaces.
