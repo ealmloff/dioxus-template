@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
+use document::Link;
 {% if router %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {

@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
+use document::Link;
 use tracing::Level;
 {% if router %}
 #[derive(Clone, Routable, Debug, PartialEq)]
@@ -57,7 +58,7 @@ fn App() -> Element {
     // Build cool things ✌️
 
     rsx! {
-        head::Link { rel: "stylesheet", href: asset!("./assets/main.css") }
+        Link { rel: "stylesheet", href: asset!("./assets/main.css") }
         img { src: asset!("./assets/header.svg"), id: "header" }
         div { id: "links",
             a { target: "_blank", href: "https://dioxuslabs.com/learn/0.5/", "📚 Learn Dioxus" }
