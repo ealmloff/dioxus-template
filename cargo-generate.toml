@@ -1,2 +1,2 @@
 [template]
-sub_templates = ["Barebones", "Jumpstart", "Multiplatform Workspace"]
+sub_templates = ["Barebones", "Jumpstart", "Workspace"]

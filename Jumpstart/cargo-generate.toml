@@ -1,5 +1,5 @@
 [template]
 
 [hooks]
-init = ["../init-script.rhai"]
+init = ["init.rhai", "../init-common.rhai"]
 pre = ["conditional-files.rhai"]

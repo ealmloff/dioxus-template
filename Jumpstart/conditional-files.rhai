@@ -1,12 +1,16 @@
 // This file handles conditional files for this specific sub-template.
 
-let is_tailwind = variable::get("is_tailwind");
+const IS_TAILWIND_VAR = "is_tailwind";
+const IS_ROUTER_VAR = "is_router";
+const IS_FULLSTACK_VAR = "is_fullstack";
+
+let is_tailwind = variable::get(IS_TAILWIND_VAR);
 if !is_tailwind {
     file::delete("tailwind.config.js");
     file::delete("input.css");
 }
 
-let is_router = variable::get("is_router");
+let is_router = variable::get(IS_ROUTER_VAR);
 if !is_router {
     file::delete("src/pages");
     file::delete("src/components/navbar.rs");
@@ -14,7 +18,7 @@ if !is_router {
     file::delete("assets/styling/blog.css");
 }
 
-let is_fullstack = variable::get("is_fullstack");
+let is_fullstack = variable::get(IS_FULLSTACK_VAR);
 if !is_fullstack {
     file::delete("src/components/calculator.rs");
 }

@@ -1,6 +1,12 @@
 // These are variables that are used in liquid
+const NEEDS_DEFAULT_PLATFORM_VAR = "needs_default_platform";
+
 const DIOXUS_DEP_FEAT_VAR = "dioxus_dep_features";
 const DEFAULT_PLATFORM_VAR = "default_platform";
+
+const IS_WEB_VAR = "is_web";
+const IS_DESKTOP_VAR = "is_desktop";
+const IS_MOBILE_VAR = "is_mobile";
 
 const IS_ROUTER_VAR = "is_router";
 const IS_FULLSTACK_VAR = "is_fullstack";
@@ -16,11 +22,13 @@ let is_web = variable::prompt("Do you want to build for Dioxus Web?", true);
 if is_web {
     platforms += "Web";
     features += "web = [\"dioxus/web\"]";
+    variable::set(IS_WEB_VAR, true);
 }
 let is_desktop = variable::prompt("Do you want to build for Dioxus Desktop?", true);
 if is_desktop {
     platforms += "Desktop";
     features += "desktop = [\"dioxus/desktop\"]";
+    variable::set(IS_DESKTOP_VAR, true);
 }
 
 // Mobile
@@ -28,7 +36,8 @@ let is_mobile = variable::prompt("Do you want to build for Dioxus Mobile?", true
 if is_mobile {
     // Mobile can't currently be a default platform.
     //platforms += "Mobile";
-    features += "mobile = [\"dioxus/desktop\"]";
+    features += "mobile = [\"dioxus/mobile\"]";
+    variable::set(IS_MOBILE_VAR, true);
 }
 
 // Make sure the user chose at least one platform.
@@ -37,8 +46,10 @@ if platforms.len() == 0 {
 }
 
 // Ask the default platform from the selected platforms. If ios or android, we must replace with desktop feature.
-let default_platform = variable::prompt("Which platform do you want DX to serve by default?", platforms[0], platforms);
-variable::set(DEFAULT_PLATFORM_VAR, default_platform.to_lower());
+if variable::get(NEEDS_DEFAULT_PLATFORM_VAR) {
+    let default_platform = variable::prompt("Which platform do you want DX to serve by default?", platforms[0], platforms);
+    variable::set(DEFAULT_PLATFORM_VAR, default_platform.to_lower());
+}
 
 // Use fullstack?
 let is_fullstack = variable::prompt("Do you want to use Dioxus Fullstack?", true);

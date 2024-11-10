@@ -6,4 +6,12 @@ This repo is used by `dx new` when starting new projects. The CLI relies on [car
 
 ### Organization
 
-This repository is organized into two sub templates: one for single multi-platform binaries and another for multi-platform workspaces.
+This repository is organized into three sub-templates:
+- `Barebones` - A single file barebones Dioxus project.
+- `Jumpstart` - A more structured jumpstart with a starting file structure.
+- `Workspace` - A full workspace with a crate for shared functionality and every platform.
+
+All templates support every platform, router, and fullstack.
+
+### Development
+To test the templates, you can run `cargo generate --path myPathToTemplates`

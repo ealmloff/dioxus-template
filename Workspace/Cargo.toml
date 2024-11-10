@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "ui",
+    {%- for member in workspace_members %}
+    "{{- member -}}",
+    {%- endfor %}
+]
+
+[workspace.dependencies]
+dioxus = { git = "https://github.com/DioxusLabs/dioxus" }
+dioxus-logger = "0.5"
+
+# workspace
+ui = { path = "ui" }
