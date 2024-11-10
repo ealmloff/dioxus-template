@@ -12,7 +12,7 @@ if !is_tailwind {
 
 let is_router = variable::get(IS_ROUTER_VAR);
 if !is_router {
-    file::delete("src/pages");
+    file::delete("src/views");
     file::delete("src/components/navbar.rs");
     file::delete("assets/styling/navbar.css");
     file::delete("assets/styling/blog.css");

@@ -11,12 +11,12 @@ use components::Hero;
 {%- endif %}
 {%- endif %}
 {% if is_router -%}
-use pages::{Blog, Home};
+use views::{Blog, Home};
 {%- endif %}
 
 mod components;
 {% if is_router -%}
-mod pages;
+mod views;
 
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
