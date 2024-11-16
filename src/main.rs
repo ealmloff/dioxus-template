@@ -1,7 +1,5 @@
-#![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use dioxus_logger::tracing::{Level, info};
 {% if router %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
@@ -13,20 +11,11 @@ enum Route {
 {% endif %}
 
 fn main() {
-    // Init logger
-    dioxus_logger::init(Level::INFO).expect("failed to init logger");
-    info!("starting app");
-    {% if styling == "Tailwind" %}
-    let cfg = dioxus::desktop::Config::new().with_custom_head(r#"<link rel="stylesheet" href="tailwind.css">"#.to_string());
-    LaunchBuilder::desktop().with_cfg(cfg).launch(App);
-    {% else %}
-    dioxus::launch(App);
-    {% endif %}
+    dioxus::launch(app);
 }
 
 {% if router %}
-#[component]
-fn App() -> Element {
+fn app() -> Element {
     rsx! {
         Router::<Route> {}
     }
@@ -59,18 +48,16 @@ fn Home() -> Element {
     }
 }
 {% else %}
-#[component]
-fn App() -> Element {
+fn app() -> Element {
     // Build cool things ✌️
-
     rsx! {
-        link { rel: "stylesheet", href: "main.css" }
-        img { src: "header.svg", id: "header" }
+        link { rel: "stylesheet", href: asset!("/assets/main.css") }
+        img { id: "header", src: asset!("/assets/header.svg") }
         div { id: "links",
-            a { href: "https://dioxuslabs.com/learn/0.5/", "📚 Learn Dioxus" }
+            a { href: "https://dioxuslabs.com/learn/0.6/", "📚 Learn Dioxus" }
             a { href: "https://dioxuslabs.com/awesome", "🚀 Awesome Dioxus" }
             a { href: "https://github.com/dioxus-community/", "📡 Community Libraries" }
-            a { href: "https://github.com/DioxusLabs/dioxus-std", "⚙️ Dioxus Standard Library" }
+            a { href: "https://github.com/DioxusLabs/dioxus-sdk", "⚙️ Dioxus Development Kit" }
             a { href: "https://marketplace.visualstudio.com/items?itemName=DioxusLabs.dioxus",
                 "💫 VSCode Extension"
             }
