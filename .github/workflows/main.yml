@@ -5,7 +5,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
-
 # workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -24,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - uses: cargo-bins/cargo-binstall@v1.10.13
-      - run: cargo binstall dioxus-cli@0.6.0-alpha.5
+      - run: cargo binstall dioxus-cli@0.6.0-rc.0
       - run: sudo apt update
       - run: sudo apt install expect libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
 
@@ -51,4 +50,3 @@ jobs:
       - name: Test Workspace
         working-directory: ./workspace-all
         run: cargo check
-      
