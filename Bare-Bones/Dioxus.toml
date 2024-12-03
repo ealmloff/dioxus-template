@@ -3,15 +3,11 @@
 # App (Project) Name
 name = "{{project-name}}"
 
-# Dioxus App Default Platform
-# web, desktop, fullstack
-default_platform = "desktop"
-
-# `build` & `serve` dist path
+# `build` dist path
 out_dir = "dist"
 
-# assets file folder
-asset_dir = "assets"
+# resource (assets) file folder
+asset_dir = "none"
 
 [web.app]
 
@@ -30,11 +26,7 @@ watch_path = ["src", "assets"]
 [web.resource]
 
 # CSS style file
-{% if styling == "Tailwind" %}
-style = ["/tailwind.css"]
-{% else %}
 style = []
-{% endif %}
 
 # Javascript code file
 script = []
