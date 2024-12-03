@@ -9,6 +9,6 @@ is_web = { prompt = "Do you want to build for Dioxus Web?", default = true, type
 is_desktop = { prompt = "Do you want to build for Dioxus Desktop?", default = true, type = "bool" }
 is_mobile = { prompt = "Do you want to build for Dioxus Mobile?", default = true, type = "bool" }
 
-is_fullstack = { prompt = "Do you want to use Dioxus Fullstack?", default = true, type = "bool" }
-is_router = { prompt = "Do you want to use the Dioxus Router?", default = true, type = "bool" }
+is_fullstack = { prompt = "Do you want to use Dioxus Fullstack?", default = false, type = "bool" }
+is_router = { prompt = "Do you want to use the Dioxus Router?", default = false, type = "bool" }
 is_tailwind = { prompt = "Do you want to use Tailwind CSS?", default = false, type = "bool" }
