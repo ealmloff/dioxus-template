@@ -9,7 +9,6 @@ members = [
 
 [workspace.dependencies]
 dioxus = { {{ dioxus_dep_src }} }
-dioxus-logger = "0.5"
 
 # workspace
 ui = { path = "ui" }

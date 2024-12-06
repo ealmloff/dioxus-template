@@ -1,5 +1,4 @@
 use dioxus::prelude::*;
-use dioxus_logger::tracing::Level;
 
 {% if is_router -%}
 use ui::Navbar;
@@ -31,7 +30,6 @@ enum Route {
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 
 fn main() {
-    dioxus_logger::init(Level::INFO).expect("failed to init logger");
     dioxus::launch(App);
 }
 
@@ -68,9 +66,9 @@ fn DesktopNavbar() -> Element {
             Link {
                 to: Route::Blog { id: 1 },
                 "Blog"
-            }  
+            }
         }
-        
+
         Outlet::<Route> {}
     }
 }

@@ -8,7 +8,6 @@ edition = "2021"
 
 [dependencies]
 dioxus = { {{ dioxus_dep_src }}, features = {{dioxus_dep_features}} }
-dioxus-logger = "0.5"
 
 [features]
 default = ["{{default_platform}}"]
