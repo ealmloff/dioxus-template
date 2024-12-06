@@ -10,41 +10,22 @@ const NEEDS_DEFAULT_PLATFORM_VAR = "needs_default_platform";
 const DIOXUS_DEP_FEAT_VAR = "dioxus_dep_features";
 const DEFAULT_PLATFORM_VAR = "default_platform";
 
-const IS_WEB_VAR = "is_web";
-const IS_DESKTOP_VAR = "is_desktop";
-const IS_MOBILE_VAR = "is_mobile";
-
 const IS_ROUTER_VAR = "is_router";
 const IS_FULLSTACK_VAR = "is_fullstack";
 // const IS_TAILWIND_VAR = "is_tailwind";
 
 const FEATURES_VAR = "features";
 
-// Figure out what platforms
-let features = [];
-let platforms = [];
-
-// Web
-let is_web = variable::get(IS_WEB_VAR);
-if is_web {
-   platforms += "Web";
-   features += "web = [\"dioxus/web\"]";
-}
-
-// Desktop
-let is_desktop = variable::get(IS_DESKTOP_VAR);
-if is_desktop {
-    platforms += "Desktop";
-    features += "desktop = [\"dioxus/desktop\"]";
-}
-
-// Mobile
-let is_mobile = variable::get(IS_MOBILE_VAR);
-if is_mobile {
-    // Mobile can't currently be a default platform.
-    platforms += "Mobile";
-    features += "mobile = [\"dioxus/mobile\"]";
-}
+let features = [
+    "web = [\"dioxus/web\"]",
+    "desktop = [\"dioxus/desktop\"]",
+    "mobile = [\"dioxus/mobile\"]"
+];
+let platforms = [
+    "Web",
+    "Desktop",
+    "Mobile"
+];
 
 // Do we need a default platform?
 if variable::get(NEEDS_DEFAULT_PLATFORM_VAR) {
