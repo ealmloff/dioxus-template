@@ -3,32 +3,18 @@
 # App (Project) Name
 name = "{{project-name}}"
 
-# `build` dist path
-out_dir = "dist"
-
-# resource (assets) file folder
-asset_dir = "none"
-
 [web.app]
 
 # HTML title tag content
 title = "{{project-name}}"
 
-[web.watcher]
-
-# when watcher trigger, regenerate the `index.html`
-reload_html = true
-
-# which files or dirs will be watcher monitoring
-watch_path = ["src", "assets"]
-
 # include `assets` in web platform
 [web.resource]
 
-# CSS style file
+# Additional CSS style files
 style = []
 
-# Javascript code file
+# Additional JavaScript files
 script = []
 
 [web.resource.dev]
