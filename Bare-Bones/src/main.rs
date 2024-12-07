@@ -25,22 +25,14 @@ fn main() {
 
 #[component]
 fn App() -> Element {
-    // Build cool things ✌️
     rsx! {
-        // Global app resources
         document::Link { rel: "icon", href: FAVICON }
-        document::Link { rel: "stylesheet", href: MAIN_CSS }
-        {% if is_tailwind -%}
-        document::Link { rel: "stylesheet", href: TAILWIND_CSS }
-        {%- endif %}
-        {% if is_router -%}
-        Router::<Route> {}
-        {%- else -%}
-        Hero {}
-        {% if is_fullstack -%}
-        Echo {}
-        {%- endif %}
-        {%- endif %}
+        document::Link { rel: "stylesheet", href: MAIN_CSS } {% if is_tailwind -%}
+        document::Link { rel: "stylesheet", href: TAILWIND_CSS } {%- endif %}
+        {% if is_router -%} Router::<Route> {}
+        {%- else -%} Hero {}
+        {%- endif %} {% if is_fullstack -%}
+        Echo {}{%- endif %}
     }
 }
 
@@ -68,9 +60,7 @@ pub fn Hero() -> Element {
 fn Home() -> Element {
     rsx! {
         Hero {}
-        {% if is_fullstack -%}
-        Echo {}
-        {%- endif %}
+        {% if is_fullstack -%} Echo {} {%- endif %}
     }
 }
 
