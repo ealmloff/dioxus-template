@@ -52,7 +52,7 @@ const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 {%- endif %}
 
 fn main() {
-    // The `launch` function is the main entry point for a dioxus app. It takes a component and renders it wit the platform feature
+    // The `launch` function is the main entry point for a dioxus app. It takes a component and renders it with the platform feature
     // you have enabled
     dioxus::launch(App);
 }

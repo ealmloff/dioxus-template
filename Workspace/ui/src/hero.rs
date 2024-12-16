@@ -8,10 +8,14 @@ pub fn Hero() -> Element {
     rsx! {
         document::Link { rel: "stylesheet", href: HERO_CSS }
 
+        // We can create elements inside the rsx macro with the element name followed by a block of attributes and children.
         div {
+            // Attributes should be defined in the element before any children
             id: "hero",
+            // After all attributes are defined, we can define child elements and components
             img { src: HEADER_SVG, id: "header" }
             div { id: "links",
+            // The RSX macro also supports text nodes surrounded by quotes
                 a { href: "https://dioxuslabs.com/learn/0.6/", "📚 Learn Dioxus" }
                 a { href: "https://dioxuslabs.com/awesome", "🚀 Awesome Dioxus" }
                 a { href: "https://github.com/dioxus-community/", "📡 Community Libraries" }
