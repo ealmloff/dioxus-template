@@ -6,4 +6,5 @@ let is_tailwind = variable::get(IS_TAILWIND_VAR);
 if !is_tailwind {
     file::delete("tailwind.config.js");
     file::delete("input.css");
+    file::delete("assets/tailwind.css");
 }
