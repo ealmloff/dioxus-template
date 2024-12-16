@@ -5,3 +5,8 @@ edition = "2021"
 
 [dependencies]
 dioxus = { workspace = true, features = ["fullstack"] }
+
+[features]
+# The server feature should be enabled when building the server
+# Any dependencies that are only required for the server build should be optional and only enabled in the server feature
+server = []

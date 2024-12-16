@@ -7,4 +7,7 @@ edition = "2021"
 dioxus = { workspace = true }
 {% if is_fullstack -%}
 server = { workspace = true }
+
+[features]
+server = ["server/server"] # Re-export the server feature from the server crate for any server specific dependencies
 {%- endif %}
