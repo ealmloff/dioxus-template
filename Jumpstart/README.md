@@ -3,6 +3,22 @@
 Your new jumpstart project includes basic organization with an organized `assets` folder and a `components` folder. 
 If you chose to develop with the router feature, you will also have a `views` folder.
 
+```
+project/
+├─ assets/ # Any assets that are used by the app should be placed here
+├─ src/
+│  ├─ main.rs # The entrypoint for the app.{% if is_router %} It also defines the routes for the app.{% endif %}
+│  ├─ components/
+│  │  ├─ mod.rs # Defines the components module
+│  │  ├─ hero.rs # The Hero component for use in the home page{% if is_fullstack %}
+│  │  ├─ echo.rs # The echo component uses server functions to communicate with the server{%- endif %}{% if is_router %}
+│  ├─ views/ # The views each route will render in the app.
+│  │  ├─ mod.rs # Defines the module for the views route and re-exports the components for each route
+│  │  ├─ blog.rs # The component that will render at the /blog/:id route
+│  │  ├─ home.rs # The component that will render at the / route{% endif %}
+├─ Cargo.toml # The Cargo.toml file defines the dependencies and feature flags for your project
+```
+
 {% if is_tailwind -%}
 ### Tailwind
 1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm

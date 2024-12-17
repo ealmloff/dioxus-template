@@ -3,10 +3,11 @@
 use dioxus::prelude::*;
 
 {% if is_fullstack -%}
+{% if is_router == false -%}
 use components::{Hero, Echo};
+{%- endif %}
 {%- else -%}
 use components::Hero;
-{%- endif %}
 {%- endif %}
 {% if is_router -%}
 use views::{Blog, Home, Navbar};

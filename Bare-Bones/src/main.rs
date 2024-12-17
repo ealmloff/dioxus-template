@@ -60,9 +60,12 @@ fn App() -> Element {
         // The router component renders the route enum we defined above. It will handle synchronization of the URL and render
         // the layouts and components for the active route.
         Router::<Route> {}
-        {%- else -%} Hero {}
-        {%- endif %} {% if is_fullstack -%}
-        Echo {}{%- endif %}
+        {%- else -%}
+        Hero {}
+        {% if is_fullstack -%}
+        Echo {}
+        {%- endif %}
+        {%- endif %} 
     }
 }
 

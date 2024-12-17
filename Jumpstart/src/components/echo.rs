@@ -4,7 +4,7 @@ const ECHO_CSS: Asset = asset!("/assets/styling/echo.css");
 
 /// Echo component that demonstrates fullstack server functions.
 #[component]
-fn Echo() -> Element {
+pub fn Echo() -> Element {
     // use_signal is a hook. Hooks in dioxus must be run in a consistent order every time the component is rendered.
     // That means they can't be run inside other hooks, async blocks, if statements, or loops.
     // 
@@ -13,6 +13,8 @@ fn Echo() -> Element {
     let mut response = use_signal(|| String::new());
 
     rsx! {
+        document::Link { rel: "stylesheet", href: ECHO_CSS }
+
         div {
             id: "echo",
             h4 { "ServerFn Echo" }
