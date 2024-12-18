@@ -8,10 +8,8 @@ dioxus = { workspace = true, features = [{{- router_feature -}}] }
 ui = { workspace = true }
 
 [features]
-default = [{% if is_fullstack == false -%}"web"{%- endif %}]
-# The web feature is enabled by the CLI when building the client (web) build{% if is_fullstack -%}
-# Any web specific dependencies should be optional and only enabled in the web feature (for example, web-sys should be added here){%- endif %}
+default = ["web"]
 web = ["dioxus/web"]
 {% if is_fullstack -%}
-server = ["dioxus/server", "ui/server"]
+server = ["dioxus/server"]
 {%- endif %}
