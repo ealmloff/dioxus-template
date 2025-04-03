@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = [
+    "ui",
+    {%- for member in workspace_members %}
+    "{{- member -}}",
+    {%- endfor %}
+]
+
+[workspace.dependencies]
+dioxus = { {{ dioxus_dep_src }} }
+
+# workspace
+ui = { path = "ui" }
+{% if is_fullstack -%}
+api = { path = "api" }
+{%- endif %}

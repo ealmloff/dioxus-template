@@ -1,40 +1,23 @@
-# dioxus-template
+# Overview
 
-> a template for starting a dioxus project to be used with [dioxus-cli](https://github.com/DioxusLabs/cli)
+**This repo is not intended to be `git cloned`**.
 
-## Usage
+This repo is used by `dx new` when starting new projects. The CLI relies on [cargo-generate](https://crates.io/crates/cargo-generate) to create and use these templates.
 
-#### use `dioxus-cli` init the template:
+### Organization
 
-```
-dioxus init hello-dioxus
-```
+This repository is organized into three sub-templates:
+- `Bare-Bones` - A single file bare-bones Dioxus project.
+- `Jumpstart` - A more structured jumpstart with a starting file structure.
+- `Workspace` - A full workspace with a crate for shared functionality and every platform.
 
-or you can choose the template, for this tempalte:
+All templates support every platform, router, and fullstack.
 
-```
-dioxus init hello-dioxus --template=gh:dioxuslabs/dioxus-template
-```
+### Local Development
+To run and test the templates without `dx`, you can run `cargo generate --path myPathToTemplates`
 
-#### Start a `dev-server` for the project:
-
-```
-cd ./hello-dioxus
-dioxus serve
-```
-
-or package this project:
-
-```
-dioxus build --release
-```
-
-## Project Structure
-
-```
-.project
-- public # save the assets you want include in your project.
-- src # put your code
-- - utils # save some public function
-- - components # save some custom components
-```
+The templates have a few different scripts:
+- `init.rhai` runs first and sets variables that tell the `init-common.rhai` script what this template needs.
+- `init-common.rhai` is a common script for all the templates which asks for a variety of information from the user.
+- `vars.rhai` is a script that can set additional variables based on the already-ran scripts. For example, generating a new string to insert into the template based on previous variables.
+- `conditional-files.rhai` runs last and deletes files and folders based on the variables set by `init-common.rhai`.

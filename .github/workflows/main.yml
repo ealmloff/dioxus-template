@@ -1,0 +1,52 @@
+name: Templates CI
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+# workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: -D warnings
+
+jobs:
+  check:
+    if: github.event.pull_request.draft == false
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: cargo-bins/cargo-binstall@v1.10.13
+      - run: cargo binstall dioxus-cli@0.6 --force --no-confirm
+      - run: sudo apt update
+      - run: sudo apt install expect libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
+
+      # Test bare bones
+      - name: Create Bare-Bones
+        run: dx new --template . --subtemplate Bare-Bones --yes --option default_platform=web barebones-all
+
+      - name: Test Bare-Bones
+        working-directory: ./barebones-all
+        run: cargo check
+
+      # Test Jumpstart
+      - name: Create Jumpstart
+        run: dx new --template . --subtemplate Jumpstart --yes --option default_platform=web jumpstart-all
+
+      - name: Test Jumpstart
+        working-directory: ./jumpstart-all
+        run: cargo check
+
+      # Test Workspace
+      - name: Create Workspace
+        run: dx new --template . --subtemplate Workspace --yes workspace-all
+
+      - name: Test Workspace
+        working-directory: ./workspace-all
+        run: cargo check

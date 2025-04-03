@@ -1,0 +1,15 @@
+[package]
+name = "web"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dioxus = { workspace = true, features = [{{- router_feature -}}] }
+ui = { workspace = true }
+
+[features]
+default = [{% if is_fullstack == false -%}"web"{%- endif %}]
+web = ["dioxus/web"]
+{% if is_fullstack -%}
+server = ["dioxus/server"]
+{%- endif %}

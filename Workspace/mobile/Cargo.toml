@@ -1,0 +1,15 @@
+[package]
+name = "mobile"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dioxus = { workspace = true, features = [{{- router_feature -}}] }
+ui = { workspace = true }
+
+[features]
+default = [{% if is_fullstack == false -%}"mobile"{%- endif %}]
+mobile = ["dioxus/mobile"]
+{% if is_fullstack -%}
+server = ["dioxus/server"]
+{%- endif %}
