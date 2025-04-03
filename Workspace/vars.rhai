@@ -9,7 +9,7 @@ const IS_ROUTER = "is_router";
 let workspace_members = ["web", "desktop", "mobile"];
 
 if variable::get(IS_FULLSTACK) {
-    workspace_members += "server"
+    workspace_members += "api"
 }
 
 variable::set(WORKSPACE_MEMBERS_VAR, workspace_members);
