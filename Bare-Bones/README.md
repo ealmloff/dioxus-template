@@ -2,6 +2,14 @@
 
 Your new bare-bones project includes minimal organization with a single `main.rs` file and a few assets.
 
+```
+project/
+├─ assets/ # Any assets that are used by the app should be placed here
+├─ src/
+│  ├─ main.rs # main.rs is the entry point to your application and currently contains all components for the app
+├─ Cargo.toml # The Cargo.toml file defines the dependencies and feature flags for your project
+```
+
 {% if is_tailwind -%}
 ### Tailwind
 1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
