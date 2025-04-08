@@ -5,7 +5,7 @@ const IS_ROUTER_VAR = "is_router";
 
 let is_fullstack = variable::get(IS_FULLSTACK_VAR);
 if !is_fullstack {
-    file::delete("server");
+    file::delete("api");
     file::delete("ui/src/echo.rs");
     file::delete("ui/assets/styling/echo.css");
 }

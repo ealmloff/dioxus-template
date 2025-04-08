@@ -6,5 +6,5 @@ edition = "2021"
 [dependencies]
 dioxus = { workspace = true }
 {% if is_fullstack -%}
-server = { workspace = true }
+api = { workspace = true }
 {%- endif %}

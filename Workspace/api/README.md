@@ -1,10 +1,10 @@
-# Server
+# API
 
 This crate contains all shared fullstack server functions. This is a great place to place any server-only logic you would like to expose in multiple platforms like a method that accesses your database or a method that sends an email.
 
 This crate will be built twice:
-1. Once for the server build with the `server` feature enabled
-2. Once for the client build with the `server` feature disabled
+1. Once for the server build with the `dioxus/server` feature enabled
+2. Once for the client build with the client feature disabled
 
 During the server build, the server functions will be collected and hosted on a public API for the client to call. During the client build, the server functions will be compiled into the client build.
 

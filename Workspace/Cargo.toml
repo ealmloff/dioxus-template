@@ -13,5 +13,5 @@ dioxus = { {{ dioxus_dep_src }} }
 # workspace
 ui = { path = "ui" }
 {% if is_fullstack -%}
-server = { path = "server" }
+api = { path = "api" }
 {%- endif %}

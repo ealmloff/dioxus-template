@@ -1,6 +1,6 @@
 # Development
 
-{% if is_fullstack -%}Your new workspace contains a member crate for each of the web, desktop and mobile platforms, a `ui` crate for shared components and a `server` crate for shared backend logic:{%- else -%}
+{% if is_fullstack -%}Your new workspace contains a member crate for each of the web, desktop and mobile platforms, a `ui` crate for shared components and a `api` crate for shared backend logic:{%- else -%}
 Your new workspace contains a member crate for each of the web, desktop and mobile platforms, and a `ui` crate for components that are shared between multiple platforms:{%- endif %}
 
 ```
@@ -11,7 +11,7 @@ your_project/
 │  ├─ ... # Desktop specific UI/logic
 ├─ mobile/
 │  ├─ ... # Mobile specific UI/logic{% if is_fullstack %}
-├─ server/
+├─ api/
 │  ├─ ... # All shared server logic{% endif %}
 ├─ ui/
 │  ├─ ... # Component shared between multiple platforms
@@ -51,10 +51,10 @@ ui/
 {% if is_fullstack -%}
 ## Shared backend logic
 
-The workspace contains a `server` crate with shared backend logic. This crate defines all of the shared server functions for all platforms. Server functions are async functions that expose a public API on the server. They can be called like a normal async function from the client. When you run `dx serve`, all of the server functions will be collected in the server build and hosted on a public API for the client to call. The `server` crate starts out something like this:
+The workspace contains a `api` crate with shared backend logic. This crate defines all of the shared server functions for all platforms. Server functions are async functions that expose a public API on the server. They can be called like a normal async function from the client. When you run `dx serve`, all of the server functions will be collected in the server build and hosted on a public API for the client to call. The `api` crate starts out something like this:
 
 ```
-server/
+api/
 ├─ src/
 │  ├─ lib.rs # Exports a server function that echos the input string
 ```
