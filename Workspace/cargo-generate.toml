@@ -1,4 +1,5 @@
 [template]
+exclude = ["*.ico"]
 
 [hooks]
 pre = ["init.rhai", "../common.rhai", "vars.rhai"]
